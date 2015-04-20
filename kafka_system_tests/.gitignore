@@ -1,0 +1,16 @@
+.vagrant/
+Vagrantfile.local
+
+.idea/
+
+*.pyc
+*.ipynb
+
+kafka/
+
+
+.DS_Store
+
+.ducktape
+results/
+
