@@ -15,7 +15,7 @@
 from ducktape.tests.test import Test
 from ducktape.services.service import ServiceContext
 
-from kafka_system_tests.services.core import ZookeeperService
+from kafka_system_tests.services.zookeeper_service import ZookeeperService
 from kafka_system_tests.services.kafka_service import KafkaService
 
 
@@ -43,7 +43,6 @@ class KafkaTest(Test):
         self.kafka = KafkaService(
             ServiceContext(self.cluster, self.num_brokers, self.logger),
             self.zk, topics=self.topics)
-        print "kafka: ", str(self.kafka)
         self.zk.start()
         self.kafka.start()
 

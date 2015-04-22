@@ -43,13 +43,15 @@ if [ -z `which gradle` ] && [ ! -d $base_dir/$gradle ]; then
     mv $gradle $base_dir/$gradle
 fi
 
-# Ensure aws access keys are in the environment
-grep "AWS ACCESS KEYS" ~/.bashrc > /dev/null
-if [ $? != 0 ]; then
-  echo "# --- AWS ACCESS KEYS ---" >> ~/.bashrc
-  echo ". `realpath $base_dir/aws/aws-access-keys-commands`" >> ~/.bashrc
-  echo "# -----------------------" >> ~/.bashrc
-  source ~/.bashrc
+# Ensure aws access keys are in the environment when we use a EC2 driver machine
+LOCAL_HOSTNAME=$(hostname -d)
+if [[ ${LOCAL_HOSTNAME} =~ .*\.compute\.internal ]]; then
+  grep "AWS ACCESS KEYS" ~/.bashrc > /dev/null
+  if [ $? != 0 ]; then
+    echo "# --- AWS ACCESS KEYS ---" >> ~/.bashrc
+    echo ". `realpath $base_dir/aws/aws-access-keys-commands`" >> ~/.bashrc
+    echo "# -----------------------" >> ~/.bashrc
+    source ~/.bashrc
+  fi
 fi
 
-$base_dir/build.sh --aws
