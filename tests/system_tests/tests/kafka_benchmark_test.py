@@ -14,7 +14,7 @@
 
 from .test import KafkaTest
 from ducktape.services.service import Service
-from kafka_system_tests.services.performance import ProducerPerformanceService, ConsumerPerformanceService, \
+from system_tests.services.performance import ProducerPerformanceService, ConsumerPerformanceService, \
     EndToEndLatencyService
 
 
