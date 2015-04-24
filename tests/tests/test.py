@@ -15,8 +15,8 @@
 from ducktape.tests.test import Test
 from ducktape.services.service import ServiceContext
 
-from system_tests.services.zookeeper_service import ZookeeperService
-from system_tests.services.kafka_service import KafkaService
+from services.zookeeper_service import ZookeeperService
+from services.kafka_service import KafkaService
 
 
 class KafkaTest(Test):

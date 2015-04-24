@@ -20,12 +20,15 @@ require 'socket'
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+# Mode
+mode = "kafka_cluster"
+
 # General config
 enable_dns = false
+ram_megabytes = 1280
+num_workers = 0 # Generic workers that get the code, but don't start any services
 num_zookeepers = 1
 num_brokers = 3
-num_workers = 0 # Generic workers that get the code, but don't start any services
-ram_megabytes = 1280
 
 # EC2
 ec2_access_key = ENV['AWS_ACCESS_KEY']
@@ -48,6 +51,11 @@ ec2_associate_public_ip = nil
 local_config_file = File.join(File.dirname(__FILE__), "Vagrantfile.local")
 if File.exists?(local_config_file) then
   eval(File.read(local_config_file), binding, "Vagrantfile.local")
+end
+
+if mode == "test"
+  num_zookeepers = 0
+  num_brokers = 0
 end
 
 # This is a horrible hack to work around bad interactions between

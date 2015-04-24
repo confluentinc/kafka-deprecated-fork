@@ -1,4 +1,3 @@
-.vagrant/
 Vagrantfile.local
 
 .idea/
@@ -6,11 +5,7 @@ Vagrantfile.local
 *.pyc
 *.ipynb
 
-kafka/
-
-
 .DS_Store
 
 .ducktape
 results/
-

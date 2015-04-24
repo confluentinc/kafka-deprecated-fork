@@ -1,8 +1,7 @@
 ec3_instance_type = "m3.medium"
 enable_dns = true
+mode = "test"
 num_workers = 1
-num_zookeepers = 0
-num_brokers = 0
 ec2_keypair_name =
 ec2_keypair_file =
 ec2_security_groups = ['ducttape-insecure']

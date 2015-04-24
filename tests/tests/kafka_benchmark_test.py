@@ -12,9 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .test import KafkaTest
 from ducktape.services.service import Service
-from system_tests.services.performance import ProducerPerformanceService, ConsumerPerformanceService, \
+
+from tests.test import KafkaTest
+from services.performance import ProducerPerformanceService, ConsumerPerformanceService, \
     EndToEndLatencyService
 
 
